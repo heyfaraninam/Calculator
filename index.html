@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dusk">
+
+  <div class="mesh"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="app">
+
+    <div class="theme-panel glass">
+      <div class="theme-label">Theme</div>
+      <div class="theme-dot dusk active"   onclick="setTheme('dusk',this)"   title="Dusk"></div>
+      <div class="theme-dot forest"        onclick="setTheme('forest',this)" title="Forest"></div>
+      <div class="theme-dot ember"         onclick="setTheme('ember',this)"  title="Ember"></div>
+      <div class="theme-dot arctic"        onclick="setTheme('arctic',this)" title="Arctic"></div>
+    </div>
+
+    <div class="calc-body glass">
+      <div class="calc-display" id="display">
+        <div class="display-glow"></div>
+        <div class="mode-badge" id="mode-badge">STANDARD</div>
+        <button class="sci-toggle" onclick="toggleSci()">SCI</button>
+        <div class="expr-line" id="expr"></div>
+        <div class="result-line" id="result">0</div>
+      </div>
+
+      <div class="sci-row hidden" id="sci-row">
+        <button class="btn sci" onclick="calcSci('sin')">sin</button>
+        <button class="btn sci" onclick="calcSci('cos')">cos</button>
+        <button class="btn sci" onclick="calcSci('tan')">tan</button>
+        <button class="btn sci" onclick="calcSci('log')">log</button>
+        <button class="btn sci" onclick="calcSci('sqrt')">√</button>
+        <button class="btn sci" onclick="calcSci('sq')">x²</button>
+        <button class="btn sci" onclick="calcSci('inv')">1/x</button>
+        <button class="btn sci" onclick="calcSci('pi')">π</button>
+      </div>
+
+      <div class="calc-grid">
+        <button class="btn clear" onclick="calcAC()">AC</button>
+        <button class="btn fn"    onclick="calcToggleSign()">±</button>
+        <button class="btn fn"    onclick="calcPct()">%</button>
+        <button class="btn op"    onclick="calcOp('÷')">÷</button>
+
+        <button class="btn" onclick="calcNum('7')">7</button>
+        <button class="btn" onclick="calcNum('8')">8</button>
+        <button class="btn" onclick="calcNum('9')">9</button>
+        <button class="btn op" onclick="calcOp('×')">×</button>
+
+        <button class="btn" onclick="calcNum('4')">4</button>
+        <button class="btn" onclick="calcNum('5')">5</button>
+        <button class="btn" onclick="calcNum('6')">6</button>
+        <button class="btn op" onclick="calcOp('−')">−</button>
+
+        <button class="btn" onclick="calcNum('1')">1</button>
+        <button class="btn" onclick="calcNum('2')">2</button>
+        <button class="btn" onclick="calcNum('3')">3</button>
+        <button class="btn op" onclick="calcOp('+')">+</button>
+
+        <button class="btn zero" onclick="calcNum('0')">0</button>
+        <button class="btn" onclick="calcDot()">.</button>
+        <button class="btn eq"  onclick="calcEqual()">=</button>
+      </div>
+    </div>
+
+    <div class="history-panel glass">
+      <div class="history-title">History</div>
+      <div class="history-list" id="hist-list">
+        <div class="history-empty" id="hist-empty">No calculations yet</div>
+      </div>
+      <div class="hist-clear" onclick="clearHistory()">Clear all</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
